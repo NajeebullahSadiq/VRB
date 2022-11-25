@@ -18,7 +18,7 @@ import mongoose from "mongoose";
 import UserRouter from "./Routers/UserRouter.js";
 
 // connect database
-const mongoDB = "mongodb://127.0.0.1/VirtualDoctor";
+const mongoDB = MONGO_URL;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
