@@ -1,0 +1,42 @@
+[
+    {
+      "image": "/doctorPhotos/1.jpg",
+      "name": "Khan",
+      "age": 23,
+      "gender": "male",
+      "specialization": "medical",
+      "experience": "five years"
+    },
+    {
+       "image": "/doctorPhotos/3.jpg",
+      "name": "ahmad",
+      "age": 23,
+      "gender": "male",
+      "specialization": "medical",
+      "experience": "five years"
+    },
+    {
+       "image": "/doctorPhotos/4.jpg",
+      "name": "khalid",
+      "age": 23,
+      "gender": "male",
+      "specialization": "medical",
+      "experience": "five years"
+    },
+    {
+       "image": "/doctorPhotos/5.jpg",
+      "name": "latif",
+      "age": 23,
+      "gender": "male",
+      "specialization": "medical",
+      "experience": "five years"
+    },
+    {
+       "image": "/doctorPhotos/6.jpg",
+      "name": "ankit",
+      "age": 23,
+      "gender": "male",
+      "specialization": "medical",
+      "experience": "five years"
+    }
+  ]
