@@ -1,24 +1,25 @@
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 1;
-import express from "express";
-import cors from "cors";
-
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-
 import dotenv from "dotenv";
 import fetch from "node-fetch";
-import logger from "morgan";
+import express from "express";
+const app = express();
+
+import logger from "morgan"
+import cors from "cors";
+
 app.use(logger("dev"));
-//for Video streaming support
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 
 import doctorRouter from "./Routers/DoctorRouter.js";
 import mongoose from "mongoose";
 import UserRouter from "./Routers/UserRouter.js";
 
+
 // connect database
-const mongoDB = MONGO_URL;
+const mongoDB =
+  "mongodb+srv://najib:Khan@cluster0.zms67.mongodb.net/VirtualDoctor?retryWrites=true&w=majority";  //"mongodb://127.0.0.1/VirtualDoctor"; 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
@@ -29,8 +30,11 @@ app.use("/userData", UserRouter);
 console.log(mongoose.connection.readyState);
 
 
-//implements Video calls
 
+
+
+
+// implementation of video call
 const API_KEY = process.env.daily_API_KEY;
 
 const headers = {
@@ -85,14 +89,6 @@ app.get("/video-call/:id", async function (req, res) {
   }
 });
 
-
-//end of implements of Video calls
-
-
-const port = process.env.PORT || 7000;
-
-app.get("/", (req, res) => {
-  res.send(`Server is running ${port}`);
-});
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server Running on port ${port}`));
 
